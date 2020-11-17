@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>vue-custom-element-demo</title>
+</head>
+
+<body style="margin: 0;">
+  <noscript>
+    <strong>We're sorry but vue-custom-element-demo doesn't work properly without JavaScript enabled. Please enable it
+      to continue.</strong>
+  </noscript>
+  <!-- built files will be auto injected -->
+  <div id="app">
+    <im-menu :data="itemOptions" @clicked="clicked" :rtl="true" toggle="right">
+      <template v-slot:begin>
+        begin
+      </template>
+    </im-menu>
+    <!-- <im-menu :data="itemOptions" @clicked="clicked" type="vertical">
+      <template v-slot:end>
+        end
+      </template>
+    </im-menu> -->
+  </div>
+  <script src="/vue.min.js"></script>
+  <script>
+    window.onload = function () {
+      var app = new Vue({
+        el: '#app',
+        data: {
+          itemOptions: [
+            {
+              label: 'item1',
+              link: '/dsd',
+              children: [
+                { label: 'item5' },
+                {
+                  label: 'item6',
+                  children: [
+                    {
+                      label: 'item7',
+                      children: [
+                        { label: 'item71' },
+                        { label: 'item81' }
+                      ]
+                    },
+                    { label: 'item8' }
+                  ]
+                }
+              ]
+            },
+            { label: 'item2' },
+            { label: 'item3' },
+            {
+              label: 'item4',
+              children: [
+                { label: 'item9' }
+              ]
+            }
+          ],
+          itemOptions2: [
+            {
+              label: 'item1',
+              link: '/dsd',
+              children: [
+                { label: 'item5' },
+                {
+                  label: 'item6',
+                  children: [
+                    { label: 'item7' },
+                    { label: 'item8' }
+                  ]
+                }
+              ]
+            },
+            { label: 'item2' },
+            { label: 'item3' },
+            {
+              label: 'item4',
+              children: [
+                { label: 'item9' }
+              ]
+            }
+          ]
+        },
+        methods: {
+          clicked(data) {
+            console.log(data)
+          }
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>
