@@ -1,16 +1,16 @@
-# vue-tabs-code
+# vue-im-menu
 
-Highlight Code With Tabs
+Vue menu horizontal vs vertical support responsive
 
 ## Module
 
 ```js
 // In your main vue file - the one where you create the initial vue instance.
 import Vue from "vue";
-import TabsCode from "tabs-code";
-import "tabs-code/dist/TabsCode.css";
+import ImMenu from "vue-im-menu.js";
+import "vue-im-menu/dist/vue-im-menu.css";
 
-Vue.use(TabsCode);
+Vue.use(ImMenu);
 ```
 
 ## Browser
@@ -18,12 +18,14 @@ Vue.use(TabsCode);
 In the browser you can include it as you would any other package with unpkg, along with the stylesheet:
 
 ```html
-<script type="text/javascript" src="https://unpkg.com/vue"></script>
-<script type="text/javascript" src="tabs-code.js"></script>
-<link rel="stylesheet" href="tabs-code.css" />
+<im-menu :data="itemOptions" @clicked="clicked" :rtl="true" toggle="right">
+  <template v-slot:begin>
+    begin
+  </template>
+</im-menu>
 
 <!-- You will also need to install the component during app creation -->
 <script>
-  Vue.use(TabsCode);
+  Vue.use(ImMenu);
 </script>
 ```
